@@ -1,8 +1,8 @@
 const token = {
-  user: 'root',
-  host: 'localhost',
-  password: 'password',
-  database: 'burger_db'
+  user: 'bc72239a23ed0c',
+  // host: 'localhost',
+  password: '54398732',
+  database: 'heroku_e824e2a7b223db0'
 }
 
 

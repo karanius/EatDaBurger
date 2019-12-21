@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.use(express.json({limit:"1mb"}));
 
 app.get('/', async (req,res)=>{
-  let list = await readBurger();
+  let list = await readBurger().catch(err=>console.log(err));
   res.render('index',{
     burger: list[0],
     ate: list[1]
