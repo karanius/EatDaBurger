@@ -1,7 +1,7 @@
 <!-- Placeholder ==> -->
 <div>{{>logo}}</div>
 <h2 class='eat' >Eat-Da-Burger!</h2>
-<form action="javascirp:void(0)"><button id='clear' >Clear Lists</button></form>
+<button id='clear' >Clear Lists</button>
 <div id="middle" >
   {{>left}}
   {{>right}}
@@ -21,9 +21,7 @@
       url: '/api/clearlist',
       method:'delete'
     }).then(res=>{
-        if (res) {
-            location.reload()
-        }
+        location.reload()
       }).catch(err=>console.log(err))
   };
 </script>
