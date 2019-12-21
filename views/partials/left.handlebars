@@ -1,0 +1,26 @@
+<form action="">
+  <ul id='leftList' >
+    {{#each burger}}
+        <li key={{id}}> 
+          <div><span>{{id}}</span>.<span>{{name}}</span></div>
+          <button onclick="eatBurger(this)" >EAT</button>
+        </li>
+    {{/each}}
+  </ul>
+</form>
+
+<script>
+  var eatBurger = async function (x) {
+    var id = x.parentNode.children[0].children[0].innerText;
+    var burg = x.parentNode.children[0].children[1].innerText;
+    x.parentNode.parentNode.removeChild(x.parentNode)
+    await axios({
+      method: 'delete',
+      url: '/api/burger/',
+      data:{
+        id,burg
+      }
+    });
+    location.reload()
+  };
+</script>

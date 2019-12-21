@@ -1,0 +1,15 @@
+<form action="" id='submit' >
+  <input id='create' type="text">
+  <button onclick="poster()" >Submit</button>
+</form>
+
+<script>
+  var poster = function () {
+    var data = document.getElementById('create').value;
+    if (data.trim() !== '' ) {
+      axios.post('/api/burger' , {
+        data
+      } )
+    }
+  } ;
+</script>
