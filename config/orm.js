@@ -30,7 +30,7 @@ const token = require('../config/connection.js');
 
   await new Promise((resolve,reject)=>{
     const con = mysql.createConnection(token);
-    con.query(`SET @@GLOBAL.auto_increment_increment = 1`,(err,result)=>{
+    con.query(`use heroku_e824e2a7b223db0`,(err,result)=>{
       con.end();
       if (err) {reject(err)} else {
         resolve();

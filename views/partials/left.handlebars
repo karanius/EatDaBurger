@@ -28,7 +28,10 @@
       data:{
         id,burg
       }
-    });
-    setTimeout(()=>{location.reload()},10)
+    }).then(res=>{
+        if (res) {
+            location.reload()
+        }
+      }).catch(err=>console.log(err));
   };
 </script>

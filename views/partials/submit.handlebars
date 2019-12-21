@@ -1,4 +1,4 @@
-<form action="" id='submit' >
+<form action="javascript:void(0)" id='submit' >
   <input id='create' type="text">
   <button id='clicky' >Submit</button>
 </form>
@@ -8,12 +8,17 @@
   var poster = function (x) {
     document.getElementById('clicky').removeEventListener('click',poster);
     var data = document.getElementById('create').value;
+
     if (data.trim() !== '' ) {
-      axios.post('/api/burger' , {
+      axios.post('/api/burger/' , {
         data
-      } )
+      } ).then(res=>{
+        if (res) {
+            location.reload()
+        }
+      }).catch(err=>console.log(err))
     }
-    setTimeout(()=>{location.reload()},10)
+
   } ;
 
 
