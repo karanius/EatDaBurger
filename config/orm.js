@@ -3,14 +3,9 @@
 // and turns them into database commands like SQL.
 const mysql = require('mysql');
 const token = require('../config/connection.js');
-
-const connn = mysql.createConnection(token);
-connn.query(`use heroku_e824e2a7b223db0`,(err,rsult)=>{
-  connn.end()
-  if (err) throw err;
-})
-
-// if there is no tables,  create them
+  
+  
+  // if there is no tables,  create them
 (async function(){
   const con = mysql.createConnection(token);
   const table = await new Promise((resolve,reject)=>{
@@ -32,6 +27,19 @@ connn.query(`use heroku_e824e2a7b223db0`,(err,rsult)=>{
   } else {
     con.end();
   }
+
+  await new Promise((resolve,reject)=>{
+    const con = mysql.createConnection(token);
+    con.query(`SET @@GLOBAL.auto_increment_increment = 1`,(err,result)=>{
+      con.end();
+      if (err) {reject(err)} else {
+        resolve();
+      }
+    });
+
+  })
+
+  
 })();
 
 const orm = {
@@ -92,7 +100,6 @@ const orm = {
     })
   },
   clearList: async function () {
-
     const deleteTables = async (table) => {
       const con = mysql.createConnection(token);
       await new Promise((resolve,reject)=>{
@@ -101,7 +108,7 @@ const orm = {
           if (err){
             reject(err)
           } else {
-            resolve()
+            resolve('!')
           }
         })
       })
@@ -115,7 +122,7 @@ const orm = {
           if (err) {
             reject(err)
           } else {
-            resolve()
+            resolve('!')
           }
         })
       })
@@ -136,8 +143,8 @@ const orm = {
 
     const tableNames = await getTables();
     for (let i of tableNames) {
-      await deleteTables(i["Tables_in_burger_db"]);
-      await createTables(i["Tables_in_burger_db"]);
+      await deleteTables(i["Tables_in_heroku_e824e2a7b223db0"]);
+      await createTables(i["Tables_in_heroku_e824e2a7b223db0"]);
     }
   }
   }

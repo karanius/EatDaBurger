@@ -1,15 +1,24 @@
 <form action="" id='submit' >
   <input id='create' type="text">
-  <button onclick="poster()" >Submit</button>
+  <button id='clicky' >Submit</button>
 </form>
 
 <script>
-  var poster = function () {
+
+  var poster = function (x) {
+    document.getElementById('clicky').removeEventListener('click',poster);
     var data = document.getElementById('create').value;
     if (data.trim() !== '' ) {
       axios.post('/api/burger' , {
         data
       } )
     }
+    setTimeout(()=>{location.reload()},10)
   } ;
+
+
+  setTimeout(()=>{
+    document.getElementById('clicky').addEventListener('click',poster);
+  },10);
+
 </script>

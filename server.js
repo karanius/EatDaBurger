@@ -20,22 +20,23 @@ app.get('/', async (req,res)=>{
 app.post('/api/burger',async (req,res)=>{
   const {data} = req.body;
   await createBurger(data)
-  res.render('index')
+  res.render('index');
 })
 
 app.delete('/api/burger/',async (req,res)=>{
   const {id , burg} = req.body;
   await deleteBurger(id,burg);
-  res.render('index')
+  res.render('index');
 })
 
 app.delete('/api/clearlist',async (req,res)=>{
   await clearList();
-  res.render('index')
+  res.render('index');
 })
 
-app.listen(process.env.PORT || 8080 , ()=>{
-  console.log('on port 8080')
+const PORT = process.env.PORT || 8080;
+app.listen( PORT , ()=>{
+  console.log(`on port ${PORT}`)
 });
 
 

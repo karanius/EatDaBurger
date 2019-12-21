@@ -1,19 +1,27 @@
 <form action="">
   <ul id='leftList' >
     {{#each burger}}
-        <li key={{id}}> 
+        <li > 
           <div><span>{{id}}</span>.<span>{{name}}</span></div>
-          <button onclick="eatBurger(this)" >EAT</button>
+          <button class='clickyy' >EAT</button>
         </li>
     {{/each}}
   </ul>
 </form>
 
 <script>
+  setTimeout(()=>{
+    const a = document.querySelectorAll('.clickyy');
+    a.forEach(button=>{
+      button.addEventListener('click', eatBurger)
+    })
+  },20)
+
   var eatBurger = async function (x) {
-    var id = x.parentNode.children[0].children[0].innerText;
-    var burg = x.parentNode.children[0].children[1].innerText;
-    x.parentNode.parentNode.removeChild(x.parentNode)
+    x.target.removeEventListener('click',eatBurger);
+    var id = x.target.parentNode.children[0].children[0].innerText;
+    var burg = x.target.parentNode.children[0].children[1].innerText;
+    x.target.parentNode.parentNode.removeChild(x.target.parentNode);
     await axios({
       method: 'delete',
       url: '/api/burger/',
@@ -21,6 +29,6 @@
         id,burg
       }
     });
-    location.reload()
+    setTimeout(()=>{location.reload()},10)
   };
 </script>

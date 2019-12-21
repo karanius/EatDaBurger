@@ -12,15 +12,14 @@
 <script>
   setTimeout(()=>{
     document.getElementById('clear').addEventListener('click',clearList);
-  },500)
+  },10)
 
   var clearList = function (e){
-    e.preventDefault();
     document.getElementById('clear').removeEventListener('click',clearList)
     axios({
       url: '/api/clearlist',
       method:'delete'
     })
-    setTimeout(()=>{location.reload()},300)
+    setTimeout(()=>{location.reload()},10)
   };
 </script>
