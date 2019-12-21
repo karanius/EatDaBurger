@@ -4,6 +4,11 @@
 const mysql = require('mysql');
 const token = require('../config/connection.js');
 
+const connn = mysql.createConnection(token);
+connn.query(`use heroku_e824e2a7b223db0`,(err,rsult)=>{
+  connn.end()
+  if (err) throw err;
+})
 
 // if there is no tables,  create them
 (async function(){
