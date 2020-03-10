@@ -4,7 +4,7 @@ Assignment 11 for UfT fullstack bootcamp focusing on making an MVC app using nod
 
 # [Live Link](https://eat-the-burger-mvc.herokuapp.com/)
 
-![](screenShot.PNG)
+![](screenShot.gif)
 
 
 ## Getting Started
