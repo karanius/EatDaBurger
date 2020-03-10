@@ -1,10 +1,11 @@
-# EatDaBurger
+
+# MVC-Eat-Da-Burger
+Assignment 11 for UfT fullstack bootcamp focusing on making an MVC app using node, express, handlebars and mysql.
+
 # [Live Link](https://eat-the-burger-mvc.herokuapp.com/)
 
 ![](screenShot.PNG)
 
-# MVC-Eat-Da-Burger
-Assignment 11 for UfT fullstack bootcamp focusing on making an MVC app using node, express, handlebars and mysql.
 
 ## Getting Started
 
