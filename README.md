@@ -1,7 +1,7 @@
 # EatDaBurger
 ## [Live Link] (https://eat-the-burger-mvc.herokuapp.com/)
 
-![markdown-image](public/assets/images/markdown-preview-image.png)
+![](screenShot.PNG)
 
 # MVC-Eat-Da-Burger
 Assignment 11 for UfT fullstack bootcamp focusing on making an MVC app using node, express, handlebars and mysql.
