@@ -1,5 +1,5 @@
 # EatDaBurger
-# [Live Link] (https://eat-the-burger-mvc.herokuapp.com/)
+# [Live Link](https://eat-the-burger-mvc.herokuapp.com/)
 
 ![](screenShot.PNG)
 
